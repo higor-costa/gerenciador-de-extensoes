@@ -44,3 +44,10 @@
 --Gradiente-claro: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
 --Gradiente-escuro: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
+
+/* Body */
+body {
+  height: 100vh;
+  background-image: var(--Gradiente-escuro);
+  padding: 2rem 1rem;
+}
