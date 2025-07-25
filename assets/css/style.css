@@ -51,3 +51,41 @@ body {
   background-image: var(--Gradiente-escuro);
   padding: 2rem 1rem;
 }
+
+/* Header */
+.header {
+  background-color: var(--Neutro-800);
+  padding: .8rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  line-height: 0;
+}
+
+.header__logo-icon {
+  fill: #FF0000;
+}
+
+.header__theme-toggle {
+  background-color: var(--Neutro-700);
+  border: none;
+  line-height: 0;
+  padding: .5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.header__theme-toggle:focus {
+  box-shadow: 
+  0px 0px 0px 1px var(--Neutro-900), 
+  0px 0px 0px 2px var(--Vermelho-400);
+}
+
+.header__theme-toggle:hover {
+  background-color: var(--Neutro-600);
+}
