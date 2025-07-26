@@ -50,6 +50,8 @@ body {
   height: 100vh;
   background-image: var(--Gradiente-escuro);
   padding: 2rem 1rem;
+  font-family: 'NotoSans';
+  font-style: normal;
 }
 
 /* Header */
@@ -88,4 +90,62 @@ body {
 
 .header__theme-toggle:hover {
   background-color: var(--Neutro-600);
+}
+
+/* main */
+.extensions {
+  margin-top: 2rem;
+  
+}
+
+.extensions__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.extensions__title {
+  color: var(--Neutro-0);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.extensions__filters {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.extensions__filters-button {
+  background-color: var(--Neutro-700);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid var(--Neutro-600);
+  color: var(--Neutro-0);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: background .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.extensions__filters-button:focus {
+  box-shadow:
+  0px 0px 0px 2px var(--Neutro-900),
+  0px 0px 0px 5px var(--Vermelho-400);
+}
+
+.extensions__filters-button:hover {
+  background-color: var(--Neutro-600);
+}
+
+.extensions__filters-button--active {
+  background-color: var(--Vermelho-500);
+  border-color: var(--Vermelho-500);
+  color: var(--Neutro-900);
+}
+
+.extensions__filters-button--active:hover {
+  background-color: var(--Vermelho-500);
 }
