@@ -17,7 +17,10 @@ const fillExtensions = (extensions) => {
         </div>
         <div class="card__buttons">
           <button class="card__button-remove">Remove</button>
-          <button class="card__button-active card__button--active"></button>
+          <label class="card__button-status">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
         </div>
     `;
     containerCards.appendChild(card);
