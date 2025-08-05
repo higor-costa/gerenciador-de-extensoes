@@ -2,6 +2,29 @@
 
 const containerCards = document.querySelector('.cards');
 const extensionsJson = './data.json';
+const toggleSwitch = document.querySelector('.header__theme-toggle input');
+const iconToggleSwitch = document.querySelector('.header__theme-toggle img');
+const logo = document.querySelector('.header__logo-icon');
+
+const switchSrcImages = () => {
+  const themeLight =
+    document.documentElement.getAttribute('mode-light-dark') === 'light';
+
+  if (themeLight) {
+    iconToggleSwitch.src = './assets/images/icon-moon.svg';
+    logo.src = './assets/images/logo.svg';
+  } else {
+    iconToggleSwitch.src = './assets/images/icon-sun.svg';
+    logo.src = './assets/images/logo-dark.svg';
+  }
+};
+
+toggleSwitch.addEventListener('change', () => {
+  const mode = toggleSwitch.checked ? 'light' : 'dark';
+  document.documentElement.setAttribute('mode-light-dark', mode);
+  localStorage.setItem('theme', mode);
+  switchSrcImages();
+});
 
 const fillExtensions = (extensions) => {
   extensions.forEach((extension) => {
