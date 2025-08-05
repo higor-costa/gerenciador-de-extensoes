@@ -63,4 +63,10 @@ const loadExtensions = async () => {
   }
 };
 
-loadExtensions();
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('mode-light-dark', savedTheme);
+  toggleSwitch.checked = savedTheme === 'light';
+  loadExtensions();
+  switchSrcImages();
+});
