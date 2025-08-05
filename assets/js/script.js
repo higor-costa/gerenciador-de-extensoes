@@ -53,6 +53,9 @@ const fillExtensions = (extensions) => {
 const loadExtensions = async () => {
   try {
     const response = await fetch(extensionsJson);
+    if (!response.ok) {
+      throw new Error(`HTTP error: status ${response.status}`);
+    }
     const data = await response.json();
     fillExtensions(data);
   } catch (error) {
