@@ -59,7 +59,7 @@ const loadExtensions = async () => {
     const data = await response.json();
     fillExtensions(data);
   } catch (error) {
-    console.log('Erro ao carregar extesões: ' + error);
+    console.error('Erro ao carregar extesões: ' + error);
   }
 };
 
