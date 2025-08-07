@@ -215,8 +215,8 @@ body {
   color: var(--Neutro-0);
   border: 2px solid var(--Neutro-600);
   padding: .7rem 1rem;
-  border-radius: 20px;
-  font-size: 1.2rem;
+  border-radius: 40px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
