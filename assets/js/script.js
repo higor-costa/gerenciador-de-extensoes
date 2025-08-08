@@ -41,7 +41,7 @@ const fillExtensions = (extensions) => {
         <div class="card__buttons">
           <button class="card__button-remove">Remove</button>
           <label class="card__button-status">
-            <input type="checkbox">
+            <input type="checkbox" ${extension.isActive ? 'checked' : ''}>
             <span class="slider"></span>
           </label>
         </div>
