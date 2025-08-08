@@ -58,12 +58,21 @@ const fillExtensions = (extensions) => {
 
 const loadExtensions = async () => {
   try {
-    const response = await fetch(extensionsJson);
-    if (!response.ok) {
-      throw new Error(`HTTP error: status ${response.status}`);
+    let extensionsData;
+
+    const savedData = localStorage.getItem('Extensions');
+
+    if (savedData) {
+      extensionsData = JSON.parse(savedData);
+    } else {
+      const response = await fetch(extensionsJson);
+      if (!response.ok) {
+        throw new Error(`HTTP error: status ${response.status}`);
+      }
+      extensionsData = await response.json();
+      localStorage.setItem('Extensions', JSON.stringify(extensionsData));
     }
-    const data = await response.json();
-    fillExtensions(data);
+    fillExtensions(extensionsData);
   } catch (error) {
     console.error('Erro ao carregar extesões: ' + error);
   }
