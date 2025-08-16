@@ -63,6 +63,29 @@ const fillExtensions = (extensions) => {
   });
 };
 
+const switchClass = (button) => {
+  btnFilter.forEach(btn => btn.classList.remove('extensions__filters-button--active'));
+  button.classList.add('extensions__filters-button--active');
+}
+
+const renderCurrent = () => {
+  let filtered = extensionsData;
+
+  if (currentFilter === 'active') {
+    filtered = extensionsData.filter(e => e.isActive);
+  } else if (currentFilter === 'inactive'){
+    filtered = extensionsData.filter(e => !e.isActive);
+  }
+
+  fillExtensions(filtered)
+}
+
+const filters = (button) => {
+  currentFilter = button.dataset.filter || 'all';
+  switchClass(button);
+  renderCurrent();
+}
+
 const loadExtensions = async () => {
   try {
     let extensionsData;
@@ -91,4 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleSwitch.checked = savedTheme === 'light';
   loadExtensions();
   switchSrcImages();
+});
+
+btnFilter.forEach((button) => {
+  button.addEventListener('click', () => filters(button));
 });
