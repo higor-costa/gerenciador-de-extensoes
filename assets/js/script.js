@@ -9,6 +9,13 @@ const btnFilter = document.querySelectorAll('.extensions__filters-button');
 let extensionsData = [];
 let currentFilter = 'all';
 
+const removeExtensions = ({ target }) => {
+  const index = target.dataset.index;
+  extensionsData.splice(index, 1);
+  localStorage.setItem('Extensions', JSON.stringify(extensionsData));
+  renderCurrent();
+}
+
 const switchSrcImages = () => {
   const themeLight =
     document.documentElement.getAttribute('mode-light-dark') === 'light';
@@ -34,7 +41,7 @@ const clearCards = () => {
 
 const fillExtensions = (extensions) => {
   clearCards();
-  extensions.forEach((extension) => {
+  extensions.forEach((extension, index) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
@@ -46,7 +53,7 @@ const fillExtensions = (extensions) => {
           </div>
         </div>
         <div class="card__buttons">
-          <button class="card__button-remove">Remove</button>
+          <button class="card__button-remove" data-index="${index}">Remove</button>
           <label class="card__button-status">
             <input type="checkbox" ${extension.isActive ? 'checked' : ''}>
             <span class="slider"></span>
@@ -79,6 +86,7 @@ const renderCurrent = () => {
   }
 
   fillExtensions(filtered)
+  addEventRemove();
 }
 
 const filters = (button) => {
@@ -107,12 +115,20 @@ const loadExtensions = async () => {
   }
 };
 
+const addEventRemove = () => {
+  const btnRemove = containerCards.querySelectorAll('.card__button-remove');
+  btnRemove.forEach((btn) => {
+    btn.addEventListener('click', removeExtensions);
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('mode-light-dark', savedTheme);
   toggleSwitch.checked = savedTheme === 'light';
   loadExtensions();
   switchSrcImages();
+  addEventRemove();
 });
 
 btnFilter.forEach((button) => {
