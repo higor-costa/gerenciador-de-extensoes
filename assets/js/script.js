@@ -5,6 +5,9 @@ const extensionsJson = './data.json';
 const toggleSwitch = document.querySelector('.header__theme-toggle input');
 const iconToggleSwitch = document.querySelector('.header__theme-toggle img');
 const logo = document.querySelector('.header__logo-icon');
+const btnFilter = document.querySelectorAll('.extensions__filters-button');
+let extensionsData = [];
+let currentFilter = 'all';
 
 const switchSrcImages = () => {
   const themeLight =
