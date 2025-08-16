@@ -57,7 +57,8 @@ const fillExtensions = (extensions) => {
     const checkbox = card.querySelector('input[type="checkbox"]');
     checkbox.addEventListener('change', () => {
       extension.isActive = checkbox.checked;
-      localStorage.setItem('Extensions', JSON.stringify(extensions));
+      localStorage.setItem('Extensions', JSON.stringify(extensionsData));
+      renderCurrent();
     })
     containerCards.appendChild(card);
   });
