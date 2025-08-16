@@ -88,8 +88,6 @@ const filters = (button) => {
 
 const loadExtensions = async () => {
   try {
-    let extensionsData;
-
     const savedData = localStorage.getItem('Extensions');
 
     if (savedData) {
