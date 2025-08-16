@@ -102,7 +102,7 @@ const loadExtensions = async () => {
     }
     renderCurrent();
   } catch (error) {
-    console.error('Erro ao carregar extesões: ' + error);
+    console.error('Erro ao carregar extensões: ' + error);
   }
 };
 
