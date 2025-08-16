@@ -33,6 +33,7 @@ const clearCards = () => {
 }
 
 const fillExtensions = (extensions) => {
+  clearCards();
   extensions.forEach((extension) => {
     const card = document.createElement('div');
     card.classList.add('card');
