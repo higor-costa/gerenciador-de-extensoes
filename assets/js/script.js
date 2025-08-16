@@ -13,13 +13,12 @@ const switchSrcImages = () => {
   const themeLight =
     document.documentElement.getAttribute('mode-light-dark') === 'light';
 
-  if (themeLight) {
-    iconToggleSwitch.src = './assets/images/icon-moon.svg';
-    logo.src = './assets/images/logo.svg';
-  } else {
-    iconToggleSwitch.src = './assets/images/icon-sun.svg';
-    logo.src = './assets/images/logo-dark.svg';
-  }
+    iconToggleSwitch.src = themeLight
+    ? './assets/images/icon-moon.svg'
+    : './assets/images/icon-sun.svg';
+    logo.src = themeLight
+    ? './assets/images/logo.svg'
+    : './assets/images/logo-dark.svg';
 };
 
 toggleSwitch.addEventListener('change', () => {
