@@ -100,7 +100,7 @@ const loadExtensions = async () => {
       extensionsData = await response.json();
       localStorage.setItem('Extensions', JSON.stringify(extensionsData));
     }
-    fillExtensions(extensionsData);
+    renderCurrent();
   } catch (error) {
     console.error('Erro ao carregar extesões: ' + error);
   }
