@@ -28,6 +28,10 @@ toggleSwitch.addEventListener('change', () => {
   switchSrcImages();
 });
 
+const clearCards = () => {
+  containerCards.innerHTML = '';
+}
+
 const fillExtensions = (extensions) => {
   extensions.forEach((extension) => {
     const card = document.createElement('div');
