@@ -65,7 +65,9 @@ const fillExtensions = (extensions) => {
     checkbox.addEventListener('change', () => {
       extension.isActive = checkbox.checked;
       localStorage.setItem('Extensions', JSON.stringify(extensionsData));
-      renderCurrent();
+      setTimeout(() => {
+          renderCurrent();
+      }, 500);
     })
     containerCards.appendChild(card);
   });
