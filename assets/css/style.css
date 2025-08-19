@@ -55,6 +55,7 @@ body {
   padding: 2rem 1rem;
   font-family: 'NotoSans';
   font-style: normal;
+  min-height: 100vh;
 }
 
 /* Header */
